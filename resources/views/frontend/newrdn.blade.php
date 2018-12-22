@@ -46,3 +46,4 @@
             </div><!--card-->
         </div><!--col-->
     </div>
+@endsection
