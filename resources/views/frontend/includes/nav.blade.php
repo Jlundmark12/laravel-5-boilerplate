@@ -35,7 +35,7 @@
                         @can('view backend')
                             <a href="{{ route('admin.dashboard') }}" class="dropdown-item">@lang('navs.frontend.user.administration')</a>
                         @endcan
-
+                            <a href="{{ route('frontend.rdn') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.rdn')) }}">@lang('navs.frontend.rdn')</a>
                         <a href="{{ route('frontend.user.account') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.user.account')) }}">@lang('navs.frontend.user.account')</a>
                         <a href="{{ route('frontend.auth.logout') }}" class="dropdown-item">@lang('navs.general.logout')</a>
                     </div>
