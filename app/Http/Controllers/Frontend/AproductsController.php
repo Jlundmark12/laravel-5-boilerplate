@@ -10,8 +10,9 @@ class AproductsController extends Controller
 {
     public function rdn()
     {
-        $aproducts= Aproducts::all();
+       // $aproducts= Aproducts::all();
        // return $aproducts;
+        $aproducts= Aproducts::paginate(10);
 
         return view('frontend.newrdn',compact('aproducts')
             );

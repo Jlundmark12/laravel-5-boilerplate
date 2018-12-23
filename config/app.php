@@ -177,6 +177,8 @@ return [
         /*
          * Application Service Providers...
          */
+        Yajra\DataTables\DataTablesServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\BladeServiceProvider::class,

@@ -21,6 +21,7 @@
         {{ style(mix('css/frontend.css')) }}
 
         @stack('after-styles')
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     </head>
     <body>
         <div id="app">
@@ -38,8 +39,20 @@
         {!! script(mix('js/manifest.js')) !!}
         {!! script(mix('js/vendor.js')) !!}
         {!! script(mix('js/frontend.js')) !!}
+
+
         @stack('after-scripts')
 
         @include('includes.partials.ga')
     </body>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready( function () {
+$('#myTable').DataTable();
+} );
+</script>
 </html>

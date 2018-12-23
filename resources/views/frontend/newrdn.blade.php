@@ -17,7 +17,7 @@
                 <div class="row mt-4">
                     <div class="col">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="myTable">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -39,6 +39,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            {{ $aproducts->links() }}
                         </div>
                     </div><!--col-->
                 </div><!--row-->

@@ -21,6 +21,7 @@
     {{ style(mix('css/backend.css')) }}
 
     @stack('after-styles')
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 </head>
 
 <body class="{{ config('backend.body_classes') }}">
