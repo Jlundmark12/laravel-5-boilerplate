@@ -19,6 +19,7 @@
     <div class="row mb-4">
         <div class="col">
             <example-component></example-component>
+            <product-table-component></product-table-component>
         </div><!--col-->
     </div><!--row-->
 

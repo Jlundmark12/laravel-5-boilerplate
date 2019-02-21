@@ -58,13 +58,14 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="card mb-4">
-                                        <div class="card-header">
-                                            Item
+                                    <div class="card-header">
+                                          Product Table Component
                                         </div><!--card-header-->
 
                                         <div class="card-body">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non qui facilis deleniti expedita fuga ipsum numquam aperiam itaque cum maxime.
-                                        </div><!--card-body-->
+                                        <product-table-component></product-table-component>
+                                      
+                                        </div>
                                     </div><!--card-->
                                 </div><!--col-md-6-->
                             </div><!--row-->
@@ -73,7 +74,7 @@
                                 <div class="col">
                                     <div class="card mb-4">
                                         <div class="card-header">
-                                            Item
+                                            Item33
                                         </div><!--card-header-->
 
                                         <div class="card-body">

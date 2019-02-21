@@ -16,3 +16,20 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::resource('categories', 'Api\CategoriesController');
+//Route::get('/categories', 'Api\CategoriesController');
+
+Route::apiResources(['products' => 'Api\NewProductsController']);
+
+//Route::apiResources(['sub_categories' => 'Api\SubCategoriesController']);
+
+
+Route::post('sub_categories', 'Api\SubCategoriesController@index');
+
+Route::post('color_options', 'Api\ColorOptionController@index');
+Route::post('size_options', 'Api\SizeOptionController@index');
+
+
+
+Route::get('sales', 'Api\OrdersUsController@index');
+Route::get('calendar', 'Api\CalendarController@index');

@@ -7,11 +7,29 @@ use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\RdnController;
 use App\Http\Controllers\Frontend\AproductsController;
+use App\Http\Controllers\Frontend\ProductsController;
+use App\Http\Controllers\Frontend\LaravelGoogleGraphController;
+use App\Http\Controllers\Frontend\InventoryUpdateController;
+use App\Http\Controllers\Api\OrdersUsController;
+use App\Http\Controllers\Api\CalendarController;
+use App\Http\Controllers\Frontend\ChartController;
+
 /*
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('products', [ProductsController::class, 'index'])->name('products');
+Route::get('charting', [LaravelGoogleGraphController::class, 'index'])->name('charting');
+
+
+Route::get('charts', [ChartController::class, 'index'])->name('charting');
+
+
+Route::get('testing', [CalendarController::class, 'index'])->name('test');
+Route::get('raw_testing', [OrdersUsController::class, 'index'])->name('test');
+Route::get('inventory_updates', [InventoryUpdateController::class, 'index'])->name('inventory_updates');
+//Route::get('products', ['as' => 'products', 'uses' => 'ProductsController@index']);
 Route::get('rdn', [AproductsController::class, 'rdn'])->name('rdn');
 /*Route::get('/rdn/{aproduct}', [AproductsController::class, 'show'])->name('rdn');
 */

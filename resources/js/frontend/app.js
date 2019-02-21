@@ -8,7 +8,9 @@
 import '../bootstrap';
 import '../plugins';
 import Vue from 'vue';
-
+import VueApexCharts from 'vue-apexcharts'
+import { Chart } from "frappe-charts"
+Vue.use(VueApexCharts)
 window.Vue = Vue;
 
 /**
@@ -19,8 +21,21 @@ window.Vue = Vue;
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
 
+// Vue.component('skus-component', require('./components/SkusComponent.vue'));
+Vue.component('apexchart', VueApexCharts);
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('product-table-component', require('./components/ProductTableComponent.vue'));
+Vue.component('product-form', require('./components/ProductForm.vue'));
+Vue.component('ptable', require('./components/ptable.vue'));
+Vue.component('product-filter', require('./components/ProductFilterComponent.vue'));
+Vue.component('product-filter-draft', require('./components/ProductFilterComponent_drafttt.vue'));
+Vue.component('chart-testing', require('./components/graphs/testing.vue'));
 
+Vue.component('graph-component-test', require('./components/GraphComponent.vue'));
+Vue.component('graph-component-test1', require('./components/graphs/GraphComponent.vue'));
+Vue.component('graph-component-test2', require('./components/graphs/GraphComponent2.vue'));
+Vue.component('stacked-bar', require('./components/graphs/StackedBarComponent_backup.vue'));
+// Vue.component('vue-frappe', require('./node_modules/vue2-frappe'));
 // const files = require.context('./', true, /\.vue$/i)
 
 // files.keys().map(key => {
@@ -34,5 +49,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
  */
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+
 });

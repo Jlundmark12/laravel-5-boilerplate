@@ -40,9 +40,28 @@
                         <a href="{{ route('frontend.auth.logout') }}" class="dropdown-item">@lang('navs.general.logout')</a>
                     </div>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuUser" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Products</a>
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
+                        @can('view backend')
+                            <a href="{{ route('admin.dashboard') }}" class="dropdown-item">@lang('navs.frontend.user.administration')</a>
+                        @endcan
+                            <a href="{{ route('frontend.products') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.products')) }}">@lang('navs.frontend.products.inventory')</a>
+                            <a href="{{ route('frontend.charting') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.charting')) }}">@lang('navs.frontend.products.charting')</a>
+                            <a href="{{ route('frontend.inventory_updates') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.inventory_updates')) }}">@lang('navs.frontend.products.inventory_updates')</a>
+                            <a href="{{ route('frontend.rdn') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.rdn')) }}">@lang('navs.frontend.rdn')</a>
+                        <a href="{{ route('frontend.user.account') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.user.account')) }}">@lang('navs.frontend.user.account')</a>
+                        <a href="{{ route('frontend.auth.logout') }}" class="dropdown-item">@lang('navs.general.logout')</a>
+                    </div>
+                </li>
+
             @endguest
 
             <li class="nav-item"><a href="{{route('frontend.contact')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.contact')) }}">@lang('navs.frontend.contact')</a></li>
+            
         </ul>
     </div>
 </nav>

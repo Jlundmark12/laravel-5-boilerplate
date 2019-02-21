@@ -33,5 +33,15 @@ return [
             'my_information'  => 'My Information',
             'profile'         => 'Profile',
         ],
+
+        'products' => [
+            'inventory'        => 'Product Inventory',
+            'charting'        => 'Charts and Graphs',
+            'inventory_updates' => 'Kurt\'s Inventory Updates',
+            'administration'  => 'Administration',
+            'change_password' => 'Change Password',
+            'my_information'  => 'My Information',
+            'profile'         => 'Profile',
+        ],
     ],
 ];
