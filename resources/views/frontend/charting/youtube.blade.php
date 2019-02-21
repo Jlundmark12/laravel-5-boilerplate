@@ -22,7 +22,7 @@
         </div><!-- row -->
     </div><!-- row -->
 
-
+    {!! $chart->script() !!}
 
     {{--{!! $chart->script() !!}--}}
 
