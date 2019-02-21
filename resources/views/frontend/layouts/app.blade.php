@@ -39,7 +39,7 @@
         {!! script(mix('js/manifest.js')) !!}
         {!! script(mix('js/vendor.js')) !!}
         {!! script(mix('js/frontend.js')) !!}
-        {!! $chart->script() !!}
+
         @stack('after-scripts')
 
         @include('includes.partials.ga')
