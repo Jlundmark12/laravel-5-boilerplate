@@ -244,7 +244,7 @@ $months=collect($months)->pluck('month_name');
 
 //#00FFFF','#7FFFD4','#008080'
 
-        return view('frontend.charting.cogs', compact('chart'));
+        return view('frontend.charting.cogs', compact('chart','months','sales','cog','shipping','discounts','taxes'));
 
 
 

@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\InventoryUpdateController;
 use App\Http\Controllers\Api\OrdersUsController;
 use App\Http\Controllers\Api\CalendarController;
 use App\Http\Controllers\Frontend\ChartController;
+use App\Http\Controllers\Frontend\ShippingTableController;
 
 /*
  * Frontend Controllers
@@ -23,10 +24,11 @@ Route::get('products', [ProductsController::class, 'index'])->name('products');
 Route::get('charting', [LaravelGoogleGraphController::class, 'index'])->name('charting');
 
 
-Route::get('charts', [ChartController::class, 'index'])->name('charting');
+Route::get('charts', [ChartController::class, 'index'])->name('charts');
 
-Route::get('pie', [ChartController::class, 'pie'])->name('charting');
-Route::get('cog', [ChartController::class, 'eight'])->name('charting');
+Route::get('pie', [ChartController::class, 'pie'])->name('pie');
+Route::get('cog', [ChartController::class, 'eight'])->name('cogs');
+Route::get('shipping_data', [ShippingTableController::class, 'index'])->name('shipping_data');
 Route::get('testing', [CalendarController::class, 'index'])->name('test');
 Route::get('raw_testing', [OrdersUsController::class, 'index'])->name('test');
 Route::get('inventory_updates', [InventoryUpdateController::class, 'index'])->name('inventory_updates');

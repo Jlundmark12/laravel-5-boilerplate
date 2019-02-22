@@ -4,17 +4,37 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="@lang('labels.general.toggle_navigation')">
         <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav">
+    <li class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuUser" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">Data</a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
+
+            <a href="{{ route('frontend.charts') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.products')) }}">Yearly Sales</a>
+            <a href="{{ route('frontend.pie') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.charting')) }}">Category Sales</a>
+            <a href="{{ route('frontend.cogs') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.cogs')) }}">2018 Cogs</a>
+            <a href="{{ route('frontend.shipping_data') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.shipping_data')) }}">2018 Shipping Breakdown</a>
+            <a href="{{ route('frontend.inventory_updates') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.inventory_updates')) }}">Inventory</a>
+            <a href="{{ route('frontend.rdn') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.rdn')) }}">@lang('navs.frontend.rdn')</a>
+
+        </div>
+    </li>
+        </ul>
+    </div>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-            @if(config('locale.status') && count(config('locale.languages')) > 1)
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownLanguageLink" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">@lang('menus.language-picker.language') ({{ strtoupper(app()->getLocale()) }})</a>
+                <ul class="navbar-nav">
+                    @if(config('locale.status') && count(config('locale.languages')) > 1)
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownLanguageLink" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">@lang('menus.language-picker.language') ({{ strtoupper(app()->getLocale()) }})</a>
 
-                    @include('includes.partials.lang')
-                </li>
-            @endif
+                            @include('includes.partials.lang')
+                        </li>
+
+                    @endif
 
             @auth
                 <li class="nav-item"><a href="{{route('frontend.user.dashboard')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.user.dashboard')) }}">@lang('navs.frontend.dashboard')</a></li>

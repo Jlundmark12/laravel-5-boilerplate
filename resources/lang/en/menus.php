@@ -83,4 +83,22 @@ return [
             'tr'    => 'Turkish',
         ],
     ],
+
+
+    'data-picker' => [
+        'data' => 'Data',
+        /*
+         * Add the new language to this array.
+         * The key should have the same language code as the folder name.
+         * The string should be: 'Language-name-in-your-own-language (Language-name-in-English)'.
+         * Be sure to add the new language in alphabetical order.
+         */
+        'charts' => [
+            'shipping_data'    => 'Shipping Data',
+            'cogs'    => 'Cost Totals',
+            'charts' => 'Sales Breakdown',
+            'pie'    => 'Category Pie Chart',
+
+        ],
+    ],
 ];
