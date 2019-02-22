@@ -4,6 +4,7 @@
 
 @section('content')
     <div class="row mb-4">
+
         <div class="col">
             <div class="card">
                 <div class="card-header">
@@ -11,10 +12,39 @@
                         <i class="fas fa-tachometer-alt"></i>2018 Cost Breakdown                    </strong>
                 </div><!--card-header-->
 
+                <table class="table table-hover table-dark">
+                    <div class="responsive-table table">
+                        <div class="fixed_header">
+                            <thead>
+                            <tr >
+                                <th scope="col">State</th>
+                                <th scope="col">Total Sales</th>
+                                <th scope="col">Avg $ Sale </th>
+                                <th scope="col">Avg Label Cost</th>
+                            </tr>
+                            </thead>
+                        </div>
+                        <tbody>
+                        @for ($d = 0; $d <$ss->count(); $d++)
+
+                        <tr>
+                        <td>{{$ss[$d]->state}}</td>
+                        <td>{{$ss[$d]->order_total}}</td>
+                        <td>{{$ss[$d]->avg_order}}</td>
+                        <td>{{$ss[$d]->label_cost}}</td>
+                        </tr>
+
+                        @endfor
+
+
+                        </tbody>
+                    </div>
+                </table>
 
                 <table class="table table-hover table-dark">
+                    <div class="responsive-table table">
                     <thead>
-                    <tr>
+                    <tr >
 
                         <th scope="col">Category</th>
                         <th scope="col">Sub Category</th>
@@ -29,6 +59,7 @@
 
                     </tr>
                     </thead>
+
                     <tbody>
 
                         @for ($i = 0; $i < $shipments->count(); $i++)
@@ -68,7 +99,9 @@
 
 
                     </tbody>
+                    </div>
                 </table>
+                </div>
                 <div class="card-body">
 
 
@@ -86,6 +119,16 @@
 
 
     {{--{!! $chart->script() !!}--}}
-
+    <style>
+        .fixed_header tbody{
+            display:block;
+            overflow:auto;
+            height:200px;
+            width:100%;
+        }
+        .fixed_header thead tr{
+            display:block;
+        }
+    </style>
 @endsection
 

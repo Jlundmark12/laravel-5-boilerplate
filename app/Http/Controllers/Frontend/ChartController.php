@@ -163,6 +163,9 @@ $count=count($labels);
       $chart->labels($labels);
       // $chart->labels($years);
       $chart->dataset('Category', 'pie',$seven)->backgroundColor(['#FFA07A','#F08080','#FF0000','#FF8C00','#FFD700','#FFFFE0','#BDB76B','#FFDAB9','#7CFC00','#228B22','#00FA9A','#808000','#00FFFF','#7FFFD4','#008080','#1E90FF','#87CEFA','#000080','#FF00FF','#8B4513']);
+$chart->height(700);
+$chart->width(500);
+
 //      $chart->dataset('2018', 'pie',$eight)->backgroundColor('#42f4e8');
 //      $chart->dataset('2019', 'pie',$nine)->backgroundColor('#a5ff4c');
       return view('frontend.charting.sadsad', compact('chart'));

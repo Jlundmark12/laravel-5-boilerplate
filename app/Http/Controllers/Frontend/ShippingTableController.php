@@ -25,7 +25,22 @@ AND indi.order_id=o.id AND o.store_id=48 AND o.state_id IS NOT NULL
 GROUP BY sr.category_name_text,sr.sub_name,v.size_name,od.line_quantity,sr.id,v.size,o.store_id,us_s.STATE_NAME
 ORDER BY sr.id,v.size,count_shipments desc");
         $shipments=collect($shipments);
+
+
+        $state_shipping=DB::connection('mysql2')->select("SELECT u.STATE_NAME as state,round(SUM(o.order_total)) as order_total,round(AVG(o.order_total),2) as avg_order,
+       round(AVG(s.label_cost),2) as label_cost
+
+FROM orders_us o
+    JOIN calendar_table t on o.calendar_id = t.id
+JOIN US_STATES u on o.state_id = u.ID
+JOIN shipments s on o.id = s.sub_order_id
+WHERE t.calendar_year = 2018 AND o.store_id=48
+GROUP BY u.STATE_NAME
+ORDER BY order_total desc ");
+        $ss=collect($state_shipping);
+//dd($state_shipping);
+//dd($ss, $shipments);
 //        dd($shipments);
-        return view('frontend.charting.shipping',compact('shipments'));
+        return view('frontend.charting.shipping',compact('shipments','ss'));
     }
 }
