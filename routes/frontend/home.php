@@ -25,7 +25,8 @@ Route::get('charting', [LaravelGoogleGraphController::class, 'index'])->name('ch
 
 Route::get('charts', [ChartController::class, 'index'])->name('charting');
 
-
+Route::get('pie', [ChartController::class, 'pie'])->name('charting');
+Route::get('cog', [ChartController::class, 'eight'])->name('charting');
 Route::get('testing', [CalendarController::class, 'index'])->name('test');
 Route::get('raw_testing', [OrdersUsController::class, 'index'])->name('test');
 Route::get('inventory_updates', [InventoryUpdateController::class, 'index'])->name('inventory_updates');
