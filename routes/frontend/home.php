@@ -20,18 +20,18 @@ use App\Http\Controllers\Frontend\ShippingTableController;
  * All route names are prefixed with 'frontend.'.
  */
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('products', [ProductsController::class, 'index'])->name('products');
+Route::get('/products', [ProductsController::class, 'index'])->name('products');
 Route::get('charting', [LaravelGoogleGraphController::class, 'index'])->name('charting');
 
 
-Route::get('charts', [ChartController::class, 'index'])->name('charts');
+Route::get('/charts', [ChartController::class, 'index'])->name('charts');
 
-Route::get('pie', [ChartController::class, 'pie'])->name('pie');
-Route::get('cog', [ChartController::class, 'eight'])->name('cogs');
-Route::get('shipping_data', [ShippingTableController::class, 'index'])->name('shipping_data');
+Route::get('/pie', [ChartController::class, 'pie'])->name('pie');
+Route::get('/cog', [ChartController::class, 'eight'])->name('cogs');
+Route::get('/shipping_data', [ShippingTableController::class, 'index'])->name('shipping_data');
 Route::get('testing', [CalendarController::class, 'index'])->name('test');
 Route::get('raw_testing', [OrdersUsController::class, 'index'])->name('test');
-Route::get('inventory_updates', [InventoryUpdateController::class, 'index'])->name('inventory_updates');
+Route::get('/inventory_updates', [InventoryUpdateController::class, 'index'])->name('inventory_updates');
 //Route::get('products', ['as' => 'products', 'uses' => 'ProductsController@index']);
 Route::get('rdn', [AproductsController::class, 'rdn'])->name('rdn');
 /*Route::get('/rdn/{aproduct}', [AproductsController::class, 'show'])->name('rdn');

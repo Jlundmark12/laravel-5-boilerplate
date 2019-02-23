@@ -4,25 +4,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="@lang('labels.general.toggle_navigation')">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse " id="navbarSupportedContent">
-        <ul class="navbar-nav">
-    <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuUser" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">Data</a>
 
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
-
-            <a href="{{ route('frontend.charts') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.products')) }}">Yearly Sales</a>
-            <a href="{{ route('frontend.pie') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.charting')) }}">Category Sales</a>
-            <a href="{{ route('frontend.cogs') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.cogs')) }}">2018 Cogs</a>
-            <a href="{{ route('frontend.shipping_data') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.shipping_data')) }}">2018 Shipping Breakdown</a>
-            <a href="{{ route('frontend.inventory_updates') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.inventory_updates')) }}">Inventory</a>
-            <a href="{{ route('frontend.rdn') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.rdn')) }}">@lang('navs.frontend.rdn')</a>
-
-        </div>
-    </li>
-        </ul>
-    </div>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
@@ -78,8 +60,29 @@
                     </div>
                 </li>
 
-            @endguest
 
+
+
+                        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuUser" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">Data</a>
+
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
+                                        {{--@can('view backend')--}}
+                                        <a href="{{ route('frontend.charts') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.products')) }}">Yearly Sales</a>
+                                        <a href="{{ route('frontend.pie') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.charting')) }}">Category Sales</a>
+                                        <a href="{{ route('frontend.cogs') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.cogs')) }}">2018 Cogs</a>
+                                        <a href="{{ route('frontend.shipping_data') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.shipping_data')) }}">2018 Shipping Breakdown</a>
+                                        <a href="{{ route('frontend.inventory_updates') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.inventory_updates')) }}">Inventory</a>
+                                        <a href="{{ route('frontend.rdn') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.rdn')) }}">@lang('navs.frontend.rdn')</a>
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        @endguest
             <li class="nav-item"><a href="{{route('frontend.contact')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.contact')) }}">@lang('navs.frontend.contact')</a></li>
             
         </ul>
