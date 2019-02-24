@@ -72,7 +72,9 @@ Vue.component('ptable', require('./components/ptable.vue'));
 Vue.component('product-filter', require('./components/ProductFilterComponent.vue'));
 Vue.component('product-filter-draft', require('./components/ProductFilterComponent_drafttt.vue'));
 Vue.component('chart-testing', require('./components/graphs/testing.vue'));
-
+Vue.component('p-filter', require('./components/dashboard/PFilterComponent.vue'));
+Vue.component('product-table', require('./components/dashboard/ProductTableComponent.vue'));
+Vue.component('raw-filter', require('./components/dashboard/RawPFilter.vue'));
 Vue.component('graph-component-test', require('./components/GraphComponent.vue'));
 Vue.component('graph-component-test1', require('./components/graphs/GraphComponent.vue'));
 Vue.component('graph-component-test2', require('./components/graphs/GraphComponent2.vue'));

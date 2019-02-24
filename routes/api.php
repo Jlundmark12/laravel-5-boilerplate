@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::resource('categories', 'Api\CategoriesController');
 //Route::get('/categories', 'Api\CategoriesController');
-
+Route::get('conditions', 'Api\ConditionController@index');
 Route::apiResources(['products' => 'Api\NewProductsController']);
 
 //Route::apiResources(['sub_categories' => 'Api\SubCategoriesController']);

@@ -69,7 +69,7 @@
                                     <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuUser" data-toggle="dropdown"
                                        aria-haspopup="true" aria-expanded="false">Data</a>
 
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuUser">
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuUser">
                                         {{--@can('view backend')--}}
                                         <a href="{{ route('frontend.charts') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.products')) }}">Yearly Sales</a>
                                         <a href="{{ route('frontend.pie') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.charting')) }}">Category Sales</a>

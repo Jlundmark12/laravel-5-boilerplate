@@ -63,7 +63,7 @@
                                         </div><!--card-header-->
 
                                         <div class="card-body">
-                                        <product-table-component></product-table-component>
+                                        <raw-filter></raw-filter>
                                       
                                         </div>
                                     </div><!--card-->
