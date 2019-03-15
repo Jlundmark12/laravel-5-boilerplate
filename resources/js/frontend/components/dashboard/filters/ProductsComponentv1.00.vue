@@ -5,7 +5,7 @@
     <!--card header-->
     <form action="">
 
-
+        <!--<filters></filters>-->
         <table class="table-responsive table-striped table-hover table-bordered">
 
             <thead>
@@ -53,21 +53,42 @@
             </tbody>
         </table>
 
+
     </form>
 </template>
 
 <script>
 
-import RawPFilter from './RawPFilter.vue';
-//Vue.component('raw-filter', require('./components/dashboard/RawPFilter.vue'));
+import FilterComponent from '../filters/FilterComponent.vue'
+
 
     export default {
-        // props:['category'],
+        components: { FilterComponent },
+        props:{
+            products:{
+                type: Array,
+                default:[]
+            }
+        },
+        //   props:
+        //       ['cat_id',
+        // 'sub_cat_id',
+        // 'color_id',
+        // 'size_id',
+        // 'condition_id'
+        //        ],
         data: function(){
             return {
+                filters: {
+                    cat_id:'',
+                    sub_cat_id:'',
+                    color_id:'',
+                    size_id:'',
+                    condition_id:'',
+                },
                 products: {
                     id: '',
-                    category: [],
+                    //category: [],
                     sub_category: '',
                     name: '',
                     size: '',
@@ -82,20 +103,55 @@ import RawPFilter from './RawPFilter.vue';
 
 
         },
-computed(){
-
-},
+//computed:{
+  //cat_id:'',
+//},
 
 
         created() {
-            Event.$on('CategorySelected',(category_id)=>{     this.loadProducts(); });
+             // Event.$on('CategorySelected',(cat_id)=>{ this.category_id; });
+          //  Event.$on('CategorySelected',()=>{ this.filters.cat_id=cat_id; });
 
+           // Event.$on('CategorySelected',()=>{ alert(this.cat_id) });
+            this.loadProducts();
+          //  Event.$on('CategorySelected',()=>{ this.UpdateParent() });
+          //   Event.$on('CategorySelected',()=>{ this.loadCategoryProducts(this.cat_id) });
 
         },
+         computed:{
+        //     loadCategoryProducts() {
+        //         //     this.cat_id=category_id;
+        //         //alert('my category is'+ {cat_id})
+        //
+        //         if ( cat_id != null ) {
+        //             this.cat_id=this.filters.sub_cat_id
+        //
+        //         }
+        //
+        //         return 'defaultCat_id';
+        //
+        //     },
+
+         },
         methods: {
+
+            loadCategoryProducts() {
+//                 let self = this;
+// alert(`${self.cat_id}`);
+                //self.cat_id;
+                //     this.cat_id=category_id;
+               // alert(${self.props.cat_id});
+                alert(data);
+            },
+            UpdateParent() {
+
+                   // this.filters.cat_id=filter.cat_id;
+                alert('CategorySelected')
+            },
             loadProducts() {
                 axios.get("api/products").then(({data}) => (this.products = data));
-            },
+                // Event.$emit('Products',{products: [this.products]});
+                }
 
         },
 // components: {

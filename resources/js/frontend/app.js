@@ -54,7 +54,7 @@ $(document ).ajaxStart(function(){
 import { Chart } from "frappe-charts"
 Vue.use(VueApexCharts)
 window.Vue = Vue;
-
+window.Event = new Vue();
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -75,10 +75,16 @@ Vue.component('chart-testing', require('./components/graphs/testing.vue'));
 Vue.component('p-filter', require('./components/dashboard/PFilterComponent.vue'));
 Vue.component('product-table', require('./components/dashboard/ProductTableComponent.vue'));
 Vue.component('raw-filter', require('./components/dashboard/RawPFilter.vue'));
+Vue.component('products', require('./components/dashboard/filters/ProductsComponent.vue'));
+Vue.component('filters', require('./components/dashboard/filters/FilterComponent.vue'));
 Vue.component('graph-component-test', require('./components/GraphComponent.vue'));
 Vue.component('graph-component-test1', require('./components/graphs/GraphComponent.vue'));
 Vue.component('graph-component-test2', require('./components/graphs/GraphComponent2.vue'));
 Vue.component('stacked-bar', require('./components/graphs/StackedBarComponent_backup.vue'));
+Vue.component('invoicing-table', require('./components/invoicing/hayneedle.vue'));
+// Vue.component('feed', require('./components/product/Feed.vue'));
+// Vue.component('product-product', require('./components/product/Product.vue'));
+// Vue.component('products-products', require('./components/product/Products.vue'));
 // Vue.component('vue-frappe', require('./node_modules/vue2-frappe'));
 // const files = require.context('./', true, /\.vue$/i)
 

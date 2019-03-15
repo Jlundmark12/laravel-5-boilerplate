@@ -178,36 +178,36 @@ $chart->width(500);
     public function eight()
     {
 
-        $months=DB::connection('mysql2')->select("SELECT distinct (month_name) as month_name, month_num
+        $months=DB::connection('mysql2')->select("SELECT distinct (month_name) as month_name, month_num,calendar_year
 FROM calendar_table
-WHERE calendar_year=2018
-ORDER BY month_num asc");
+WHERE calendar_year>=2018
+ORDER BY calendar_year asc,month_num asc");
         $shipping=DB::connection('mysql2')->select("SELECT round(SUM(s.label_cost)) as labelcost
 FROM shipments s
 JOIN orders_us o on s.sub_order_id = o.id
 JOIN calendar_table t on o.calendar_id = t.id
-WHERE t.calendar_year=2018
+WHERE t.calendar_year>=2018
 GROUP BY  t.month_num,t.month_name,t.calendar_year
-ORDER BY t.month_num
+ORDER BY t.calendar_year asc,t.month_num asc
 ");
         $cog=$orders=DB::connection('mysql2')->select("SELECT round(SUM(order_bd_us.line_value_subtotal)) as item_cost
 FROM order_bd_us
 JOIN order_details_us o on order_bd_us.order_details_id = o.id
 JOIN calendar_table t on o.calendar_id = t.id
-WHERE t.calendar_year=2018
+WHERE t.calendar_year>=2018
 GROUP BY  t.month_num,t.month_name,t.calendar_year
-ORDER BY t.month_num");
+ORDER BY t.calendar_year asc,t.month_num asc");
             $sales=$orders=DB::connection('mysql2')->select("SELECT  round( SUM(orders_us.order_total)) as sales
 FROM orders_us
 JOIN calendar_table t on orders_us.calendar_id = t.id
-WHERE t.calendar_year='2018'
+WHERE t.calendar_year>='2018'
 GROUP BY t.calendar_year,t.month_name, t.month_num
 
-ORDER BY t.month_num asc");
+ORDER BY t.calendar_year asc, t.month_num asc");
             $discounts=$orders=DB::connection('mysql2')->select("SELECT round(SUM(orders_us.dicounts)) as discounts
 FROM orders_us
 JOIN calendar_table t on orders_us.calendar_id = t.id
-WHERE t.calendar_year='2018'
+WHERE t.calendar_year>='2018'
 GROUP BY t.calendar_year,t.month_name, t.month_num
 
 ORDER BY t.calendar_year asc, t.month_num asc
@@ -215,7 +215,7 @@ ORDER BY t.calendar_year asc, t.month_num asc
                 $taxes=$orders=DB::connection('mysql2')->select("SELECT round(SUM(orders_us.tax)) as taxes
 FROM orders_us
 JOIN calendar_table t on orders_us.calendar_id = t.id
-WHERE t.calendar_year='2018'
+WHERE t.calendar_year>='2018'
 GROUP BY t.calendar_year,t.month_name, t.month_num
 
 ORDER BY t.calendar_year asc, t.month_num asc

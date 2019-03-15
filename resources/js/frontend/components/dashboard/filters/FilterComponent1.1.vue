@@ -20,7 +20,7 @@
                 <!--<select class="form-control" name="category_options" id="category" v-model="cat_id" onchange.cat_id="loadSubCategories($event.target.value)">-->
                 <select class="form-control" name="category_options" id="category" v-model="cat_id" v-on:change="loadSubCategories()" @applied="onCategoryApplied">
                     <option value="" disabled selected>Select Category</option>
-                    <option v-for="category_option in category_options" v-bind:value="category_option.id"     :key="category_option.id">
+                    <option v-for="category_option in category_options" v-bind:value="category_option.id"     :key="category_option.id" >
 
                         {{ category_option.category }}
                     </option>
@@ -106,23 +106,26 @@
 
     </div>
     </div>
-        <div class="card">
-            <product-table></product-table>
-        </div>
+        <!--<div class="card">-->
+            <!--<products v-bind:cat_id="cat_id"></products>-->
+        <!--<products v-bind:products="products"></products>-->
+        <!--</div>-->
    </div>
 </template>
 
 <script>
-import ProductTableComponent from '../dashboard/ProductTableComponent.vue'
+import ProductsComponent from '../filters/ProductsComponent.vue'
 
     export default {
-    components: { ProductTableComponent },
-        // props:['category','msg'],
+    components: { ProductsComponent },
+       //  props:['cat_id'],
+       //  error went away when i disabled props on the child
+       //  Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. Instead, use a data or computed property based on the prop's value.
         // props:['products'],
         data: function(){
 
             return {
-
+//products:[],
                 cat_id:'',
                 category_options: [],
                 sub_id:'',
@@ -137,11 +140,13 @@ import ProductTableComponent from '../dashboard/ProductTableComponent.vue'
                 condition_id:'',
                 condition_options: [],
                  products: [],
+
             }
         },
 
 
         created: function(){
+            // Event.$on('products',(products)=>{this.products=products;});
             this.loadCategories();
         //    this.loadSubCategories();
             this.loadConditions();
@@ -192,10 +197,11 @@ alert('It was Applied!')
             },
             loadSubCategories(){
                 var category_id = this.cat_id;
-                Event.$emit('CategorySelected',{category_id: this.cat_id});
+                 //Event.$emit('CategorySelected',{category_id: this.cat_id});
+                Event.$emit('CategorySelected',{category_id});
                 this.loading = true;
                 axios.post(`api/sub_categories`,{category: category_id}).then(({ data })=> (this.sub_category_options = data));
-                // Event.$emit('cat_id',{category: category_id});
+              //   Event.$emit('cat_id',{category: category_id});
             },
 
             loadColors(){

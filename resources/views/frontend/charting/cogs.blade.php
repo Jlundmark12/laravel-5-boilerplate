@@ -3,18 +3,23 @@
 @section('title', app_name() . ' | ' . __('2018 Cost Breakdown') )
 
 @section('content')
-    <div class="row mb-4">
-        <div class="col">
-            <div class="card">
+    {{--<div class="row mb-4">--}}
+
+        {{--<div class="col-12">--}}
+    <div class="container">
+    <div class="card ">
                 <div class="card-header">
                     <strong>
                         <i class="fas fa-tachometer-alt"></i>2018 Cost Breakdown                    </strong>
                 </div><!--card-header-->
 
+{{--<div class="card-text row">--}}
 
-                <table class="table table-hover table-dark">
-                    <thead>
-                    <tr>
+
+                <table class="table table-responsive table-hover table-dark">
+                    {{--<div class="table responsive-table">--}}
+                    <thead >
+                    <tr class="col-10" style="color: #00aced">
 
                         <th scope="col">Month</th>
                         <th scope="col">Total Sales</th>
@@ -33,32 +38,36 @@
                     </thead>
                     <tbody>
 
-                        @for ($i = 0; $i < $months->count(); $i++)
-                            <tr>
+                    @for ($i = 0; $i < $months->count(); $i++)
+                        <tr style="flex-shrink:inherit">
                             {{--<th scope="row">{{$i}}</th>--}}
                             <td>{{$months[$i]}}</td>
 
-                                {{--<th scope="row">{{$i}}</th>--}}
-                                <td>{{$sales[$i]}}</td>
-                                <td>{{round((($cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i])/$sales[$i]*100))}}%</td>
-                                <td>{{$cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i]}}</td>
-                                <td>{{round($cog[$i]/$sales[$i]*100)}}%</td>
-                                <td>{{$cog[$i]}}</td>
-                                <td>{{round($shipping[$i]/$sales[$i]*100)}}%</td>
-                                <td>{{$shipping[$i]}}</td>
-                                <td>{{round($discounts[$i]/$sales[$i]*100)}}%</td>
-                                <td>{{$discounts[$i]}}</td>
-                                <td>{{$taxes[$i]}}</td>
-                                <td>{{$sales[$i]-($cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i])}}</td>
-                                <td>{{round(($sales[$i]-($cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i]))/($sales[$i])*100)}}%</td>
-                                {{--<td>{{$sales[$i]-($cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i])}}</td>--}}
-                            </tr>
+                            {{--<th scope="row">{{$i}}</th>--}}
+                            <td>{{$sales[$i]+$discounts[$i]}}</td>
+                            <td>{{round((($cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i])/$sales[$i]*100))}}%</td>
+                            <td>${{$cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i]}}</td>
+                            <td>{{round($cog[$i]/$sales[$i]*100)}}%</td>
+                            <td>${{$cog[$i]}}</td>
+                            <td>{{round($shipping[$i]/$sales[$i]*100)}}%</td>
+                            <td>${{$shipping[$i]}}</td>
+                            <td>{{round($discounts[$i]/$sales[$i]*100)}}%</td>
+                            <td>-${{$discounts[$i]}}</td>
+                            <td>-${{$taxes[$i]}}</td>
+                            <td>${{$sales[$i]-($cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i])}}</td>
+                            <td>{{round(($sales[$i]-($cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i]))/($sales[$i])*100)}}%</td>
+                            {{--<td>{{$sales[$i]-($cog[$i]+$shipping[$i]+$discounts[$i]+$taxes[$i])}}</td>--}}
+                        </tr>
 
-                        @endfor
+                    @endfor
 
 
                     </tbody>
+
                 </table>
+            </div>  </div>
+
+    <div class="card">
                 <div class="card-body">
 
 
@@ -67,15 +76,12 @@
 
 
                 </div> <!-- card-body -->
+    </div>
 
-
-            </div><!-- card -->
-        </div><!-- row -->
-    </div><!-- row -->
+          <!-- card -->
 
     {!! $chart->script() !!}
 
     {{--{!! $chart->script() !!}--}}
 
 @endsection
-

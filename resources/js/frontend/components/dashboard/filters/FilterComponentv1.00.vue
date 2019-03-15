@@ -106,23 +106,24 @@
 
     </div>
     </div>
-        <div class="card">
-            <product-table></product-table>
-        </div>
+        <!--<div class="card">-->
+            <!--<products v-bind:cat_id="cat_id"></products>-->
+        <!--<products v-bind:products="products"></products>-->
+        <!--</div>-->
    </div>
 </template>
 
 <script>
-import ProductTableComponent from '../dashboard/ProductTableComponent.vue'
+import ProductsComponent from '../filters/ProductsComponent.vue'
 
     export default {
-    components: { ProductTableComponent },
-        // props:['category','msg'],
+    components: { ProductsComponent },
+        // props:['cat_id'],
         // props:['products'],
         data: function(){
 
             return {
-
+products:[],
                 cat_id:'',
                 category_options: [],
                 sub_id:'',
@@ -142,6 +143,7 @@ import ProductTableComponent from '../dashboard/ProductTableComponent.vue'
 
 
         created: function(){
+            // Event.$on('products',(products)=>{this.products=products;});
             this.loadCategories();
         //    this.loadSubCategories();
             this.loadConditions();
@@ -192,10 +194,11 @@ alert('It was Applied!')
             },
             loadSubCategories(){
                 var category_id = this.cat_id;
-                Event.$emit('CategorySelected',{category_id: this.cat_id});
+                 //Event.$emit('CategorySelected',{category_id: this.cat_id});
+                Event.$emit('CategorySelected',{kitty: this.cat_id});
                 this.loading = true;
                 axios.post(`api/sub_categories`,{category: category_id}).then(({ data })=> (this.sub_category_options = data));
-                // Event.$emit('cat_id',{category: category_id});
+              //   Event.$emit('cat_id',{category: category_id});
             },
 
             loadColors(){

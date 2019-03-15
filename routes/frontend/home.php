@@ -14,7 +14,7 @@ use App\Http\Controllers\Api\OrdersUsController;
 use App\Http\Controllers\Api\CalendarController;
 use App\Http\Controllers\Frontend\ChartController;
 use App\Http\Controllers\Frontend\ShippingTableController;
-
+use App\Http\Controllers\Frontend\InvoicingController;
 /*
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
@@ -38,7 +38,10 @@ Route::get('rdn', [AproductsController::class, 'rdn'])->name('rdn');
 */
 Route::get('contact', [ContactController::class, 'index'])->name('contact');
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
-
+Route::get('invoicing','InvoicingController@index');
+Route::get('invoicing/download','InvoicingController@export');
+Route::get('invoicing/download/unsubmitted','InvoicingController@unsubmitted');
+Route::get('invoicing/download/submitted','InvoicingController@submitted');
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'

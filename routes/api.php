@@ -20,12 +20,12 @@ Route::resource('categories', 'Api\CategoriesController');
 //Route::get('/categories', 'Api\CategoriesController');
 Route::get('conditions', 'Api\ConditionController@index');
 Route::apiResources(['products' => 'Api\NewProductsController']);
-
+Route::apiResources(['kurt_update' => 'Api\KurtController']);
 //Route::apiResources(['sub_categories' => 'Api\SubCategoriesController']);
-
+Route::get('horders', 'Api\InvoicingController@index');
 
 Route::post('sub_categories', 'Api\SubCategoriesController@index');
-
+Route::post('sub_categories', 'Api\SubCategoriesController@index');
 Route::post('color_options', 'Api\ColorOptionController@index');
 Route::post('size_options', 'Api\SizeOptionController@index');
 
