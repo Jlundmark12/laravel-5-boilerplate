@@ -25,6 +25,7 @@ return [
         'macros'    => 'Macros',
         'register'  => 'Register',
         'rdn'  => 'RDN',
+        'invoicing'=> 'Hayneedle',
 
         'user' => [
             'account'         => 'My Account',
@@ -42,6 +43,10 @@ return [
             'change_password' => 'Change Password',
             'my_information'  => 'My Information',
             'profile'         => 'Profile',
+        ],
+        'invoicing' => [
+            'invoicing'     => 'Hayneedle',
+
         ],
     ],
 ];

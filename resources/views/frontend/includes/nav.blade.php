@@ -60,9 +60,23 @@
                     </div>
                 </li>
 
+                            {{--<div class="collapse navbar-collapse " id="navbarSupportedContent">--}}
+                                {{--<ul class="navbar-nav">--}}
+                                    {{--<li class="nav-item dropdown">--}}
+                                        {{--<a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuUser" data-toggle="dropdown"--}}
+                                           {{--aria-haspopup="true" aria-expanded="false">Invoicing</a>--}}
+
+                                        {{--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuUser">--}}
+                                            {{--@can('view backend')--}}
+                                            {{--<a href="{{ route('frontend.invoicing') }}" class="dropdown-item {{ active_class(Active::checkRoute('frontend.invoicing')) }}">Hayneedle</a>--}}
 
 
+                                        {{--</div>--}}
+                                    {{--</li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
 
+{{--=================--}}
                         <div class="collapse navbar-collapse " id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item dropdown">
@@ -83,7 +97,18 @@
                             </ul>
                         </div>
                         @endguest
-            <li class="nav-item"><a href="{{route('frontend.contact')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.contact')) }}">@lang('navs.frontend.contact')</a></li>
+            <li class="nav-item">
+                <a href="{{route('frontend.invoicing')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.invoicing')) }}">
+                    {{--@lang('navs.frontend.invoicing')--}}
+                    Hayneedle
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('frontend.contact')}}" class="nav-link {{ active_class(Active::checkRoute('frontend.contact')) }}">
+                    @lang('navs.frontend.contact')
+                </a>
+            </li>
+
             
         </ul>
     </div>
